@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR</title>
+</head>
+
+<body>
+    <button onclick="testGet()">GET</button>
+    <button onclick="testPost()">POST</button>
+    <button onclick="testPut()">PUT</button>
+    <button onclick="testDelete()">DELETE</button>
+    <script type="text/javascript" src='./axiosLike.js'></script>
+    <script>
+        function testGet() {
+            axios({
+                url: 'http://localhost:3000/posts',
+                method: 'GET',
+                params: {
+                    id: 4
+                }
+            }).then(
+                response => {
+                    console.log(response)
+                },
+                error => {
+                    console.log(error.message)
+                }
+            )
+        }
+
+        function testPost() {
+            axios({
+                url: 'http://localhost:3000/posts',
+                method: 'POST',
+                data: {
+                    "title": "json-server100",
+                    "author": "typicode100"
+                }
+
+            }).then(
+                response => {
+                    console.log(response)
+                },
+                error => {
+                    console.log(error.message)
+                }
+            )
+        }
+
+        function testPut() {
+            axios({
+                url: 'http://localhost:3000/posts/1',
+                method: 'put',
+                data: {
+                    "title": "json-server100++",
+                    "author": "typicode100++"
+                }
+
+            }).then(
+                response => {
+                    console.log(response)
+                },
+                error => {
+                    console.log(error.message)
+                }
+            )
+        }
+
+        function testDelete() {
+            axios({
+                url: 'http://localhost:3000/posts/3',
+                method: 'delete'
+
+            }).then(
+                response => {
+                    console.log(response)
+                },
+                error => {
+                    console.log(error.message)
+                }
+            )
+        }
+    </script>
+</body>
+
+</html>
